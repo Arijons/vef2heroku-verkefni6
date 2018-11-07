@@ -1,6 +1,12 @@
+
+import bottle
 from bottle import *
+bottle.debug(True)
+
 from beaker.middleware import SessionMiddleware
 import os
+
+from sys import argv
 
 # Kóði hér fyrir neðan nauðsynlegur...
 session_opts = {
@@ -58,7 +64,8 @@ def server_static(filepath):
     return static_file(filepath, root='static/')
     
 # Muna eftir app=app í run fallinu
-try:
+"""try:
   run(host="0.0.0.0", port=os.environ.get('PORT'), app=app)
 except:
-  run(debug=True, app=app)
+  run(debug=True, app=app)"""
+bottle.run(host='0.0.0.0', port = argv[1])
