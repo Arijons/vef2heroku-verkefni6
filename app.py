@@ -64,8 +64,8 @@ def server_static(filepath):
     return static_file(filepath, root='static/')
     
 # Muna eftir app=app í run fallinu
-"""try:
+try:
   run(host="0.0.0.0", port=os.environ.get('PORT'), app=app)
 except:
-  run(debug=True, app=app)"""
-bottle.run(host='0.0.0.0', port = argv[1])
+  run(debug=True, app=app)
+
